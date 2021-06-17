@@ -14,3 +14,4 @@ if __name__ == '__main__':
     ## comment 1 ##
     ## comment 2 ##
     print_hi('Suhas Despande')
+    print_hi('hello world')
