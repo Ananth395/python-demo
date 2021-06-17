@@ -16,4 +16,4 @@ if __name__ == '__main__':
     print_hi('Saurabh Singh')
     print_hi('hello world')
     print_hi('ananth Rao')
-    print_hi('laxmi rao')
+    print_hi('maya rao')
