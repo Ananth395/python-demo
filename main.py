@@ -12,8 +12,3 @@ def print_hi(name):
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     print_hi('Suhas Despande')
-    print_hi('Hello World 2')
-    print_hi('Hello World 3')
-    print_hi('Hello World 4')
-    print_hi('Hello World 5')
-    print_hi('Hello World 6')
