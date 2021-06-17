@@ -13,3 +13,4 @@ def print_hi(name):
 if __name__ == '__main__':
     print_hi('Suhas Despande')
     print_hi('Hello World')
+    print_hi('Hello World 2')
