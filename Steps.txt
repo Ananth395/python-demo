@@ -1,0 +1,18 @@
+steps 1:
+create new network -> docker network create myNetwork
+docker network list
+check if the containers are running in same network : docker network inspect myNetwork
+
+step 2 :
+run all the containers in the same network. both docker compose and docker.
+networks:
+  myNetwork:
+    external: true
+
+step 3:
+refer localhost as host.docker.internal
+
+
+
+# single docker container #
+docker run --name flask-docker-app -d -p 5001:5001 --network myNetwork flask-docker-app

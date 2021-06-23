@@ -1,0 +1,22 @@
+{
+        "index" : {
+            "analysis" : {
+                "filter" : {
+                    "synonym_filter" : {
+                        "type" : "synonym",
+                        "synonyms" : [
+                            "happy ,cheerful ,contented ,delighted ,ecstatic ,elated ,glad ,joyful ,joyous ,jubilant ,lively ,merry ,overjoyed ,peaceful ,pleasant ,pleased ,thrilled ,upbeat ,blessed ,blest ,blissful ,blithe ,captivated ,chipper ,chirpy ,content ,convivial ,exultant ,flying high ,gay ,gleeful ,gratified ,intoxicated ,jolly ,laughing ,light ,looking good ,mirthful ,on cloud nine ,peppy ,perky ,playful ,sparkling ,sunny ,tickled ,tickled pink ,up ,walking on air",
+							"sad,bitter ,dismal ,heartbroken ,melancholy ,mournful ,pessimistic ,somber ,sorrowful ,sorry ,wistful ,bereaved ,blue ,cheerless ,dejected ,despairing ,despondent ,disconsolate ,distressed ,doleful ,down ,down in dumps ,down in mouth ,downcast ,forlorn ,gloomy ,glum ,grief-stricken ,grieved ,heartsick ,heavyhearted ,hurting ,in doldrums ,in grief ,in the dumps ,languishing ,low ,low-spirited ,lugubrious ,morbid ,morose ,out of sorts ,pensive ,sick at heart ,troubled ,weeping ,woebegone",
+							"neutral,disinterested ,evenhanded ,fair-minded ,inactive ,indifferent ,nonaligned ,nonpartisan ,unbiased ,uncommitted ,undecided ,uninvolved ,calm ,cool ,noncombatant ,aloof ,bystanding ,clinical ,collected ,detached ,disengaged ,dispassionate ,easy ,impersonal ,inert ,middle-of-road ,nonbelligerent ,nonchalant ,nonparticipating ,on sidelines ,on the fence ,pacifistic ,poker-faced ,relaxed ,unaligned ,unconcerned ,unprejudiced"
+                        ]
+                    }
+                },
+                "analyzer" : {
+                    "synonym_analyzer" : {
+                        "tokenizer" : "standard",
+                        "filter" : ["lowercase", "synonym_filter"] 
+                    }
+                }
+            }
+        }
+    }

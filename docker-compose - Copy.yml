@@ -1,0 +1,56 @@
+version: '3.8'
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - cluster.name=elasticsearch
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - elastic
+      
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.10.1
+    container_name: kibana
+    ports:
+      - 5601:5601
+    networks:
+      - elastic
+      
+      
+  #logstash:
+  #  image: docker.elastic.co/logstash/logstash:7.10.1
+  #  container_name: logstash
+  #  depends_on:
+  #    - elasticsearch
+  #  environment:
+  #    LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+  #  command: logstash -f /etc/logstash/mssql.conf
+  #  volumes:
+  #    - C:\Users\ananthmurthy.rao\source\repos\DockerTest\mssql.conf:/etc/logstash/mssql.conf
+  #    - C:\Users\ananthmurthy.rao\source\repos\DockerTest\mssql\mssql-jdbc-9.2.1.jre8.jar:/etc/logstash/mssql-jdbc-9.2.1.jre8.jar
+  #  ports:
+  #    - 9600:9600
+  #  networks:
+  #    - elastic
+      
+           
+volumes:
+  data01:
+    driver: local
+
+networks:
+  elastic:
+    driver: bridge
