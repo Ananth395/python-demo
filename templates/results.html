@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pacifico">
+    <link rel="icon" href="http://obj-cache.cloud.ruanbekker.com/favicon.ico">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Product Reviews</title>
+
+</head>
+<body>
+
+    <div class="container">
+        <div style="background:transparent !important" class="jumbotron">
+            <div style="font-family: 'Pacifico', cursive;">
+                <p1>
+                    <center>
+                        <font size="10">Search for Product Review</font>
+                    </center>
+                </p1>
+            </div>
+        </div>
+
+        <form action="/search/results" method="post">
+            <div class="input-group">
+                <input type="text" class="form-control input-lg" name="input" placeholder="Search" autofocus>
+                <div class="input-group-btn">
+                    <button class="btn btn-primary btn-lg" type="submit">
+                        <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <center>
+            <h>
+                <font size="3">Search Keyword: "{{search_term}}"</font>
+            </h>
+            <h1>
+                <font size="3">Results: {{ res['hits']['total']['value'] }}</font>
+            </h1>
+        </center>
+
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Department Name</th>
+                    <th><center>Class Name</center></th>
+                    <th>Title</th>
+                    <th>Review Text</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+
+            {% for hit in res['hits']['hits'] %}
+            <tbody>
+                <tr>
+                    <td>{{ hit['_source']['Department Name'] }}</td>
+                    <td>{{ hit['_source']['Class Name'] }}</td>
+                    <td>{{ hit['_source']['Title'] }}</td>
+                    <td>{{ hit['_source']['Review Text'] }}</td>
+                    <td>{{ hit['_source']['Rating'] }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+
+
+    </div>
+    </div>
+</body>
+</html>
