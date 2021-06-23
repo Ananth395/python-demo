@@ -16,3 +16,15 @@ refer localhost as host.docker.internal
 
 # single docker container #
 docker run --name flask-docker-app -d -p 5001:5001 --network myNetwork flask-docker-app
+
+
+--------------------------------------------------------------------
+
+step 1) login to docker hub:
+docker login -u ananthrao -p Mangalore@123 docker.io
+step 2) build docker image from dockerfile
+docker build --tag python-docker .
+step 3) create tag
+docker tag python-docker:latest ananthrao/dockerhubrepo:myfirstimagepush
+step 4) push the image to dockerhub
+docker push ananthrao/dockerhubrepo:myfirstimagepush
